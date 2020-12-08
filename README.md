@@ -20,3 +20,4 @@ Uses code from [XNB Builder](https://sourceforge.net/projects/xnbbuilder)
 
 ## Libraries used
 - [Json.NET](https://www.newtonsoft.com/json)
+- [XNBBuilder](https://sourceforge.net/projects/xnbbuilder)
