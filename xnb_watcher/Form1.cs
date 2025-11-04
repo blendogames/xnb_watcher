@@ -495,7 +495,10 @@ namespace xnb_watcher
                     string filename = Path.GetFileName(outputFiles[i]);
                     AddLogInvoke(filename);
                 }
-                AddLogInvoke("- Export done -");
+
+                DateTime time = DateTime.Now;
+                string timeStr = time.ToString("t");
+                AddLogInvoke("- Export done {0} -", timeStr);
             }
 
             //Clean up 
@@ -757,5 +760,10 @@ namespace xnb_watcher
             listBox1.Items.Clear();
         }
 
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            listBox1.BackColor = System.Drawing.Color.White;
+            listBox1.Items.Clear();
+        }
     }
 }
