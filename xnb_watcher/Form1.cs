@@ -27,6 +27,8 @@ namespace xnb_watcher
 
         List<FileSystemWatcher> watchers;
 
+        DateTime lastReadTime;
+
         public Form1()
         {
             InitializeComponent();
@@ -393,7 +395,7 @@ namespace xnb_watcher
 
             for (int i = 0; i < profiles[lastSelectedIndex].folders.Length; i++)
             {
-                if (string.Compare(profiles[lastSelectedIndex].folders[i].operation, "Watched", StringComparison.InvariantCultureIgnoreCase) == 0)
+                if (string.Compare(profiles[lastSelectedIndex].folders[i].operation, "Watch", StringComparison.InvariantCultureIgnoreCase) == 0)
                     continue;
 
                 string ignoredFolder = profiles[lastSelectedIndex].folders[i].path.ToLowerInvariant();
@@ -436,6 +438,16 @@ namespace xnb_watcher
                     return;
                 }
             }
+
+
+
+            //Hack to fix the C# filewatcher bug. This prevents it from spamming multiple times in one frame.
+            DateTime lastWriteTime = File.GetLastWriteTime(file.FullName);
+            long delta = lastWriteTime.Ticks - lastReadTime.Ticks;
+            if (delta < 5000000) //500ms (10000 ticks = 1 millisecond)
+                return;
+
+            lastReadTime = lastWriteTime;
 
 
 
