@@ -51,6 +51,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox_watcheractive = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -254,20 +255,35 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 26);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(121, 22);
             this.toolStripMenuItem3.Text = "Clear log";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // checkBox_watcheractive
+            // 
+            this.checkBox_watcheractive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox_watcheractive.AutoSize = true;
+            this.checkBox_watcheractive.Checked = true;
+            this.checkBox_watcheractive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_watcheractive.Location = new System.Drawing.Point(571, 10);
+            this.checkBox_watcheractive.Name = "checkBox_watcheractive";
+            this.checkBox_watcheractive.Size = new System.Drawing.Size(95, 17);
+            this.checkBox_watcheractive.TabIndex = 5;
+            this.checkBox_watcheractive.Text = "Filewatcher on";
+            this.checkBox_watcheractive.UseVisualStyleBackColor = true;
+            this.checkBox_watcheractive.CheckedChanged += new System.EventHandler(this.checkBox_watcheractive_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 462);
+            this.Controls.Add(this.checkBox_watcheractive);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.menuStrip1);
@@ -312,6 +328,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.CheckBox checkBox_watcheractive;
     }
 }
 

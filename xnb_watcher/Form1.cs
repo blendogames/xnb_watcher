@@ -411,8 +411,10 @@ namespace xnb_watcher
 
         private void DoXNBCompile(string fullpath, bool doFBXCheck, bool doIgnoreCheck = true)
         {
-            FileInfo file = new FileInfo(fullpath);
+            if (!checkBox_watcheractive.Checked)
+                return;
 
+            FileInfo file = new FileInfo(fullpath);
             if (!file.Exists || !IsAcceptableFile(file) || (IsInIgnoredFolder(file) && doIgnoreCheck))
             {
                 return;
@@ -764,6 +766,14 @@ namespace xnb_watcher
         {
             listBox1.BackColor = System.Drawing.Color.White;
             listBox1.Items.Clear();
+        }
+
+        private void checkBox_watcheractive_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox1.BackColor = checkBox_watcheractive.Checked ? System.Drawing.Color.White : System.Drawing.Color.DarkGray; 
+
+
+            AddLog("Filewatcher is now {0}", checkBox_watcheractive.Checked ? "ON." : "OFF.");
         }
     }
 }
