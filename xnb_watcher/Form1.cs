@@ -458,6 +458,8 @@ namespace xnb_watcher
             List<string> outputFiles = new List<string>();
             bool buildStatus = false;
 
+            AddLogInvoke("File change detected. Please wait...");
+
             try
             {
                 XNBBuilder packager = new XNBBuilder("Windows", "HiDef", false);
